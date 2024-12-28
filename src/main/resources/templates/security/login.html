@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, initial-scale=1" name="viewport">
+    <link crossorigin="anonymous" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+          integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" rel="stylesheet">
+    <title>Employee Directory</title>
+</head>
+<body class="bg-light d-flex justify-content-center align-items-center" style="min-height: 100vh;">
+
+<div class="card shadow p-4" style="max-width: 400px; width: 100%;">
+    <h3 class="text-center mb-4">Login Page</h3>
+
+    <!--
+        Such Things are Predefined In Spring Security For Custom Login Page
+        name="username", name="password", method="POST" and th:action="@{/authenticateTheUser}
+    -->
+
+    <!-- Form starts here -->
+    <form action="#" method="POST" th:action="@{/authenticateTheUser}">
+        <!-- If any error comes : http://localhost:8080/showMyCustomLoginPage?error -->
+        <div class="alert alert-danger text-center" th:if="${param.error}">
+            <small>Sorry! You entered an invalid username or password</small>
+        </div>
+        <!-- If any error comes : http://localhost:8080/showMyCustomLoginPage?logout -->
+        <div class="alert alert-success text-center" th:if="${param.logout}">
+            <small>You have been logged out.</small>
+        </div>
+
+
+        <!-- Username input -->
+        <div class="mb-3">
+            <label class="form-label" for="username">Username</label>
+            <input class="form-control" id="username" name="username" placeholder="Enter Username" required type="text">
+        </div>
+
+        <!-- Password input -->
+        <div class="mb-3">
+            <label class="form-label" for="password">Password</label>
+            <input class="form-control" id="password" name="password" placeholder="Enter Password" required
+                   type="password">
+        </div>
+
+        <!-- Submit button -->
+        <div class="d-grid">
+            <button class="btn btn-primary" type="submit">Login</button>
+        </div>
+    </form>
+</div>
+
+</body>
+</html>

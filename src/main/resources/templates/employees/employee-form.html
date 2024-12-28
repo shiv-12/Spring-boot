@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, initial-scale=1" name="viewport">
+    <link crossorigin="anonymous" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+          integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" rel="stylesheet">
+
+    <title>Save Employee</title>
+</head>
+<body>
+
+<div class="container">
+    <h3>Employee Directory</h3>
+    <hr>
+
+    <p class="h4 mb-4">Save Employee</p>
+    <form action="#" method="POST" th:action="@{/employees/save}" th:object="${employee}">
+
+        <!--        hidden field required to perform updates -->
+        <input th:field="*{empId}" type="hidden"/>
+        <input class="form-control mb-4 w-25" placeholder="First Name" th:field="*{firstName}" type="text"/>
+        <input class="form-control mb-4 w-25" placeholder="Last Name" th:field="*{lastName}" type="text"/>
+        <input class="form-control mb-4 w-25" placeholder="Email Address" th:field="*{email}" type="text"/>
+        <button class="btn btn-info col-2" type="submit">Save</button>
+
+    </form>
+    <hr>
+
+    <!--    Adding Link For Back to Employee List-->
+    <a th:href="@{/employees/list}">Back to Employees List</a>
+</div>
+</body>
+</html>
